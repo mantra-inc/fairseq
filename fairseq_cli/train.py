@@ -193,6 +193,9 @@ def train(args, trainer, task, epoch_itr):
             args.tensorboard_logdir if distributed_utils.is_master(args) else None
         ),
         default_log_format=("tqdm" if not args.no_progress_bar else "simple"),
+        wandb_project=(
+            args.wandb_project if distributed_utils.is_master(args) else None
+        )
     )
 
     trainer.begin_epoch(epoch_itr.epoch)
@@ -314,6 +317,9 @@ def validate(args, trainer, task, epoch_itr, subsets):
                 args.tensorboard_logdir if distributed_utils.is_master(args) else None
             ),
             default_log_format=("tqdm" if not args.no_progress_bar else "simple"),
+            wandb_project=(
+                args.wandb_project if distributed_utils.is_master(args) else None
+            )
         )
 
         # create a new root metrics aggregator so validation metrics
