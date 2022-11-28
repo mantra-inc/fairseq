@@ -1,3 +1,9 @@
+How to install this version:
+```shell
+pip install git+https://github.com/mantra-inc/fairseq.git
+```
+--------------------------------------------------------------------------------
+
 <p align="center">
   <img src="docs/fairseq_logo.png" width="150">
   <br />
